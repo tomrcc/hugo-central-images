@@ -1,0 +1,11 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{- range $k := slice "image_a" "image_b" }}{{ with index $.Params $k }}
+{{- $src := "" }}{{ with resources.Get . }}{{ $src = (.Resize "200x").RelPermalink }}{{ end }}
+<section class="box">
+  <h2><code>{{ $k }}</code></h2>
+  <img data-editable="image" data-prop-src="{{ $k }}" src="{{ $src }}" alt="">
+  <p>Stored value <code>{{ . }}</code> · build <code>src</code> <code>{{ $src | default "NOT FOUND" }}</code></p>
+</section>
+{{- end }}{{ end }}
+{{ end }}

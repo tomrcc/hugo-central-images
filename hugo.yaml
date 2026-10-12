@@ -1,0 +1,13 @@
+baseURL: "https://example.com/"
+title: Central images test
+locale: en-US
+
+module:
+  imports:
+    - path: github.com/CloudCannon/editable-regions
+  mounts:
+    # Adding static -> assets drops the default assets -> assets, so it's re-added.
+    - source: assets
+      target: assets
+    - source: static
+      target: assets

@@ -1,0 +1,3 @@
+---
+title: Central images test
+---

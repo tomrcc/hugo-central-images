@@ -1,0 +1,41 @@
+# Central image storage test. All images live in static/images/ (one flat
+# folder), mounted into assets so resources.Get can process them.
+# image_a and image_b differ only in uploads_filename.
+
+_enabled_editors:
+  - visual
+  - content
+  - data
+
+collections_config:
+  pages:
+    path: content
+    glob:
+      - blog/_index.md
+    url: /[full_slug]/
+    name: Pages
+    disable_add: true
+  blog:
+    path: content/blog
+    glob:
+      - "*.md"
+      - "!_index.md"
+    url: /blog/[slug]/
+    name: Blog
+    disable_add: true
+    _inputs:
+      image_a:
+        type: image
+        comment: "uploads_filename with [count]"
+        options:
+          paths:
+            uploads: static/images
+            static: static
+            uploads_filename: "[asset_filename_without_ext][count].[asset_ext]"
+      image_b:
+        type: image
+        comment: "uploads_filename left out"
+        options:
+          paths:
+            uploads: static/images
+            static: static

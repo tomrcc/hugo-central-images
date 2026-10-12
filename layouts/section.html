@@ -1,0 +1,12 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+<p>Each post's <code>image_a</code>, as an image region bound with <code>@file</code>.</p>
+{{- range .RegularPages.ByTitle }}
+{{- $src := "" }}{{ with resources.Get .Params.image_a }}{{ $src = (.Resize "200x").RelPermalink }}{{ end }}
+<section class="box">
+  <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+  <img data-editable="image" data-prop-src="@file[/content/{{ .File.Path }}].image_a" src="{{ $src }}" alt="">
+  <p>Stored value <code>{{ .Params.image_a }}</code> · build <code>src</code> <code>{{ $src | default "NOT FOUND" }}</code></p>
+</section>
+{{- end }}
+{{ end }}

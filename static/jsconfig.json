@@ -1,0 +1,11 @@
+{
+ "compilerOptions": {
+  "baseUrl": ".",
+  "paths": {
+   "*": [
+    "../../../../../Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/!cloud!cannon/editable-regions@v0.0.21/helpers/*",
+    "../../../../../Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/!cloud!cannon/editable-regions@v0.0.21/integrations/hugo/browser/*"
+   ]
+  }
+ }
+}
